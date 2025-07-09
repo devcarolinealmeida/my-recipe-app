@@ -1,12 +1,38 @@
-# React + Vite
+# My Recipe App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 Busca de receitas por palavra-chave
+- 🎲 Geração de receitas aleatórias
+- 📱 Interface responsiva com Tailwind CSS
+- ⚡ Carregamento rápido com Vite
+- 🎨 Design moderno e intuitivo
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologias
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** - Biblioteca UI
+- **Vite** - Build tool
+- **Tailwind CSS v3** - Framework CSS
+- **React Router** - Roteamento
+- **Axios** - Cliente HTTP
+- **Spoonacular API** - Dados das receitas
+
+
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/          # Componentes reutilizáveis
+├── pages/              # Páginas da aplicação
+│   ├── HomePage/       # Página inicial
+│   └── DetailPage/     # Página de detalhes
+├── services/           # Serviços de API
+│   └── spoonacularApi.js
+├── App.jsx            # Componente principal
+└── main.jsx           # Ponto de entrada
+```
+
+
+
