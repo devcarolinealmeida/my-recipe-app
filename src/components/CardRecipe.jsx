@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function CardRecipe({ recipe }) {
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <div
       key={recipe.id}
@@ -8,11 +15,21 @@ function CardRecipe({ recipe }) {
     >
       <Link to={`/detail/${recipe.id}`} className="block">
         <div className="relative">
-          <img
-            src={recipe.image}
-            alt={recipe.title}
-            className="w-full h-48 object-cover"
-          />
+          {!imageError && recipe.image ? (
+            <img
+              src={recipe.image}
+              alt={recipe.title}
+              className="w-full h-48 object-cover"
+              onError={handleImageError}
+            />
+          ) : (
+            <div className="w-full h-48 bg-gray-200 flex items-center justify-center">
+              <div className="text-center text-gray-500">
+                <div className="text-4xl mb-2">🍽️</div>
+                <div className="text-sm">My Recipe App</div>
+              </div>
+            </div>
+          )}
           <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
             {recipe.readyInMinutes} min
           </div>
