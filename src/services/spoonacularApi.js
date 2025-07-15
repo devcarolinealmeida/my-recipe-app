@@ -24,19 +24,44 @@ export const getRandomRecipes = async (number = 10) => {
   }
 }
 
-export const searchRecipes = async (query) => {
+export const searchRecipes = async (query, filters = {}) => {
   try {
-    const response = await api.get('/complexSearch', {
-      params: {
-        query,
-        number: 10, // Number of recipes to fetch
-        addRecipeInformation: true, // Importante per avere summary, readyInMinutes, ecc.
-      }
-    });
-    return response.data.results; // Return the list of recipes
+    const params = {
+      number: 12,
+      addRecipeInformation: true,
+      fillIngredients: true
+    };
+
+    if (query) {
+      params.query = query;
+    }
+
+    if (filters.diet) {
+      params.diet = filters.diet;
+    }
+
+    if (filters.cuisine) {
+      params.cuisine = filters.cuisine;
+    }
+
+    if (filters.type) {
+      params.type = filters.type;
+    }
+
+    if (filters.maxReadyTime) {
+      params.maxReadyTime = filters.maxReadyTime;
+    }
+
+    if (filters.intolerances && filters.intolerances.length > 0) {
+      params.intolerances = filters.intolerances.join(',');
+    }
+
+    const response = await api.get('/complexSearch', { params });
+    
+    return response.data.results || [];
   } catch (error) {
-    console.error("Error fetching recipes:", error);
-    throw error; // Rethrow the error for further handling
+    console.error('Error searching recipes:', error);
+    throw error;
   }
 }
 

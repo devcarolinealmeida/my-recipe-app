@@ -28,7 +28,7 @@ function CardRecipe({ recipe }) {
           )}
           <div className="flex items-center justify-between text-sm text-gray-500">
             <span className="flex items-center">
-              🍽️ {recipe.servings} porzioni
+              🍽️ {recipe.servings} servings
             </span>
             {recipe.healthScore && (
               <span className="flex items-center">
